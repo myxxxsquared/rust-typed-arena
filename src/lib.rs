@@ -545,6 +545,9 @@ impl<T> Default for Arena<T> {
 }
 
 impl<T> ChunkList<T> {
+    // alloc at most 4M elements if there is not size hint
+    const DEFAULT_ALLOC_MAX_SIZE: usize = 1024 * 1024 * 4;
+
     #[inline(never)]
     #[cold]
     fn reserve(&mut self, additional: usize) {
@@ -553,6 +556,7 @@ impl<T> ChunkList<T> {
             .capacity()
             .checked_mul(2)
             .expect("capacity overflow");
+        let double_cap = cmp::min(double_cap, Self::DEFAULT_ALLOC_MAX_SIZE);
         let required_cap = additional
             .checked_next_power_of_two()
             .expect("capacity overflow");

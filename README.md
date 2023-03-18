@@ -1,3 +1,7 @@
+# Modification by github.com/myxxxsquared
+
+- alloc at most 4M elements if there is not size hint (lib.rs:548)
+
 # `typed-arena`
 
 [![](https://docs.rs/typed-arena/badge.svg)](https://docs.rs/typed-arena/)
