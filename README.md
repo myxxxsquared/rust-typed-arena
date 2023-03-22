@@ -1,6 +1,6 @@
 # Modification by github.com/myxxxsquared
 
-- alloc at most 4M elements if there is not size hint (lib.rs:548)
+- alloc at most 32M memory if there is not size hint (lib.rs:548)
 
 # `typed-arena`
 
