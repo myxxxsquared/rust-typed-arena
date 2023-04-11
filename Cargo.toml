@@ -20,5 +20,3 @@ path = "src/lib.rs"
 default = ["std"]
 std = []
 
-[workspace]
-exclude = ["benches"]
