@@ -39,7 +39,7 @@ fn arena_as_intended() {
 
         assert_eq!(arena.len(), 4);
 
-        mem::drop(node);
+        let _ = node;
         assert_eq!(drop_counter.get(), 0);
 
         let mut node: &Node = arena.alloc(Node(None, 5, DropTracker(&drop_counter)));
